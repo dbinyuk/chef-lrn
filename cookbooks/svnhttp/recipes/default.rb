@@ -38,9 +38,6 @@ bash "adding admin user to #{node[:svnhttp][:htpasswd_path]}" do
 	code "htpasswd -b -c #{node[:svnhttp][:htpasswd_path]} admin #{node[:svnhttp][:admin_passwd]}"
 end
 
-execute "initializing repo #{node[:svnhttp][:project_path]}" do
-  command ""
-end
 
 bash "create svn repo on #{node[:svnhttp][:project_path]}" do
 	code <<-EOH
